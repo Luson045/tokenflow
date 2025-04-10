@@ -15,8 +15,13 @@ dotenv.config();
 const app = express();
 
 // Middleware
+const corsOptions = {
+  origin: ['https://tokenflow.ondernder.com','http://localhost:5000'],
+  optionsSuccessStatus: 200
+};
+
 app.use(express.json());
-app.use(cors());
+app.use(cors(corsOptions));
 app.use(cookieParser());
 
 // MongoDB Connection
